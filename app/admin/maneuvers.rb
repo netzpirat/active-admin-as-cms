@@ -3,7 +3,11 @@ ActiveAdmin.register Maneuver do
     column :name
     column :customer
     column :year
+    column 'images' do |maneuver|
+      maneuver.images.count
+    end
     column :created_at
+    column :updated_at
     default_actions
   end
 
