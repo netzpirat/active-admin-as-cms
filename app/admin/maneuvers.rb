@@ -21,10 +21,8 @@ ActiveAdmin.register Maneuver do
     end
 
     panel 'Images' do
-      table_for(maneuver.images) do
-        column do  |i|
-          image_tag(i.image.url)
-        end
+      maneuver.images.each do |i|
+        img src: i.image.url
       end
     end
 
