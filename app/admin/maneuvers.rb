@@ -3,11 +3,14 @@ ActiveAdmin.register Maneuver do
     column :name
     column :customer
     column :year
+
     column 'images' do |maneuver|
       maneuver.images.count
     end
+
     column :created_at
     column :updated_at
+
     default_actions
   end
 
@@ -54,14 +57,21 @@ ActiveAdmin.register Maneuver do
     end
 
     f.has_many :images do |i|
-      i.inputs 'Images' do
+      i.inputs 'Image' do
         i.input :image_cache, as: :hidden
-        if i.object.new_record?
-          i.input :image, label: 'Upload new image', :hint => i.object.image.url ? f.template.image_tag(i.object.image.url) : nil
-        else
-          i.input :image, label: 'Replace existing image', :hint => i.object.image.url ? f.template.image_tag(i.object.image.url) : nil
-          i.input :_destroy, as: :boolean
+
+        i.input :image, {
+          label: i.object.new_record? ? 'Upload new image' : 'Replace existing image',
+          hint: i.object.image.url ? f.template.image_tag(i.object.image.url) : nil
+        }
+
+        i.input :label
+
+        if !i.object.new_record?
+          i.input :_destroy, as: :boolean, label: 'Destroy on next update'
         end
+
+        i.form_buffers.last
       end
     end
 
