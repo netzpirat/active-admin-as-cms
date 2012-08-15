@@ -7,6 +7,10 @@ gem 'pg'
 gem 'activeadmin'
 gem 'meta_search',    '>= 1.1.0.pre'
 
+gem 'globalize3'
+gem 'rails-translate-routes'
+gem 'locale_detector'
+
 gem 'compass'
 gem 'haml'
 gem 'haml-rails'
