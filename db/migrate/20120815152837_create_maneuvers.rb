@@ -11,7 +11,5 @@ class CreateManeuvers < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    add_index :maneuvers, :name, :unique => true
   end
 end
