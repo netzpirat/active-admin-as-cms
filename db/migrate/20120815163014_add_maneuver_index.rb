@@ -1,9 +1,5 @@
 class AddManeuverIndex < ActiveRecord::Migration
-  def up
+  def change
     add_index :maneuvers, :name, :unique => true
-  end
-
-  def down
-    remove_index :maneuvers, :name
   end
 end
