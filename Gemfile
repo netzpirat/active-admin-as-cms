@@ -11,6 +11,11 @@ gem 'globalize3'
 gem 'rails-translate-routes'
 gem 'locale_detector'
 
+gem 'carrierwave'
+gem 'fog'
+gem 'flash_cookie_session'
+gem 'mini_magick'
+
 gem 'compass'
 gem 'haml'
 gem 'haml-rails'
@@ -25,4 +30,5 @@ end
 
 group :development do
   gem 'thin'
+  gem 'bullet'
 end
