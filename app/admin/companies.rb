@@ -20,6 +20,15 @@ ActiveAdmin.register Company do
           end
         end
 
+        if description.image
+          panel 'Image' do
+            img src: description.image.image.url
+            globalize_attributes_table_for description.image do
+              row :label
+            end
+          end
+        end
+
         description.company_description_details.each do |detail|
           panel 'Detail' do
             globalize_attributes_table_for detail do
@@ -50,6 +59,16 @@ ActiveAdmin.register Company do
 
     f.has_many :company_descriptions do |desc|
       desc.inputs 'Description' do
+
+        desc.inputs 'Image', :for => [:image, desc.object.image || Image.new] do |image|
+          image.input :image_cache, as: :hidden
+
+          image.input :image, {
+            label: image.object.new_record? ? 'Upload new image' : 'Replace existing image',
+            hint: image.object.image.url ? f.template.image_tag(image.object.image.url) : nil
+          }
+        end
+
         desc.globalize_inputs :translations do |li|
           li.inputs do
             li.input :title
