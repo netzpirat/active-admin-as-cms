@@ -16,7 +16,7 @@ ActiveAdmin.register Maneuver do
 
   show do |maneuver|
     panel 'Maneuver' do
-      attributes_table_for maneuver, :name, :tagline, :year
+      attributes_table_for maneuver, :name, :year
     end
 
     panel 'Customer' do
@@ -24,12 +24,23 @@ ActiveAdmin.register Maneuver do
     end
 
     panel 'Details' do
-      attributes_table_for maneuver, :services, :description
+      globalize_attributes_table_for maneuver do
+        row :tagline
+        row :services
+        row :description do |p|
+          BlueCloth.new(p.description).to_html.html_safe
+        end
+      end
     end
 
     panel 'Images' do
       maneuver.images.each do |i|
-        img src: i.image.url
+        div class: 'maneuver-image' do
+          img src: i.image.url
+          globalize_attributes_table_for i do
+            row :label
+          end
+        end
       end
     end
 

@@ -40,3 +40,12 @@ form fieldset ol > li label {
   margin-top: 25px;
   font-size: 24px;
 }
+
+.maneuver-image {
+  float: left;
+  width: 353px;
+}
+
+.section > div, .panel > div {
+  overflow: auto;
+}
