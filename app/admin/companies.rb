@@ -13,11 +13,21 @@ ActiveAdmin.register Company do
 
     company.company_descriptions.each do |description|
       panel 'Description' do
-        attributes_table_for description, :title, :description
+        globalize_attributes_table_for description do
+          row :title
+          row :description do |d|
+            BlueCloth.new(d.description).to_html.html_safe
+          end
+        end
 
         description.company_description_details.each do |detail|
           panel 'Detail' do
-            attributes_table_for detail, :title, :description
+            globalize_attributes_table_for detail do
+              row :title
+              row :description do |d|
+                BlueCloth.new(d.description).to_html.html_safe
+              end
+            end
           end
         end
       end
@@ -40,8 +50,13 @@ ActiveAdmin.register Company do
 
     f.has_many :company_descriptions do |desc|
       desc.inputs 'Description' do
-        desc.input :title
-        desc.input :description
+        desc.globalize_inputs :translations do |li|
+          li.inputs do
+            li.input :title
+            li.input :description
+            li.input :locale, :as => :hidden
+          end
+        end
 
         if !desc.object.new_record?
           desc.input :_destroy, as: :boolean, label: 'Destroy on next update'
@@ -49,8 +64,13 @@ ActiveAdmin.register Company do
 
         desc.has_many :company_description_details do |detail|
           detail.inputs 'Details' do
-            detail.input :title
-            detail.input :description
+            detail.globalize_inputs :translations do |li|
+              li.inputs do
+                li.input :title
+                li.input :description
+                li.input :locale, :as => :hidden
+              end
+            end
 
             if !detail.object.new_record?
               detail.input :_destroy, as: :boolean, label: 'Destroy on next update'

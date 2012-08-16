@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816143829) do
+ActiveRecord::Schema.define(:version => 20120816153838) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -58,6 +58,18 @@ ActiveRecord::Schema.define(:version => 20120816143829) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "company_description_detail_translations", :force => true do |t|
+    t.integer  "company_description_detail_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "company_description_detail_translations", ["company_description_detail_id"], :name => "index_54f89f0a3c16786b8b5d32ab0ad757a15462e3ec"
+  add_index "company_description_detail_translations", ["locale"], :name => "index_company_description_detail_translations_on_locale"
+
   create_table "company_description_details", :force => true do |t|
     t.integer  "company_description_id"
     t.string   "title"
@@ -65,6 +77,18 @@ ActiveRecord::Schema.define(:version => 20120816143829) do
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
   end
+
+  create_table "company_description_translations", :force => true do |t|
+    t.integer  "company_description_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  add_index "company_description_translations", ["company_description_id"], :name => "index_59bb7a4ae8fb92924ff6dccff67f97a7071d7f90"
+  add_index "company_description_translations", ["locale"], :name => "index_company_description_translations_on_locale"
 
   create_table "company_descriptions", :force => true do |t|
     t.integer  "company_id"
