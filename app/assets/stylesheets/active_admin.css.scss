@@ -49,3 +49,7 @@ form fieldset ol > li label {
 .section > div, .panel > div {
   overflow: auto;
 }
+
+.has_many > h3 {
+  display: none;
+}

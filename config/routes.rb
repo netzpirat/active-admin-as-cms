@@ -2,6 +2,7 @@ VareseCorridor::Application.routes.draw do
   match '/office', to: 'office#index'
   match '/maneuver', to: 'maneuver#index'
 
+  match '/admin/companies' => redirect('/admin/companies/1')
   root to: 'home#index'
 end
 

@@ -1,6 +1,6 @@
 class Maneuver < ActiveRecord::Base
 
-  has_many :images, :as => :imageable, :dependent => :destroy, :include => [:translations]
+  has_many :images, :as => :imageable, dependent: :destroy, include: [:translations]
 
   translates :description, :services, :tagline
 
