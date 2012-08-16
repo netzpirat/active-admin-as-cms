@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/netzpirat/ActiveAdmin-Globalize3-inputs.git
+  revision: 790a90dea6d80f07eda3d0e1ffcc4d9287851aee
+  specs:
+    ActiveAdmin-Globalize3-inputs (0.0.1)
+      activeadmin
+      globalize3
+
+GIT
   remote: git://github.com/svenfuchs/globalize3.git
   revision: f4e0398883b207c5826abff2ad94e8183d85da16
   specs:
@@ -6,13 +14,6 @@ GIT
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
       paper_trail (~> 2)
-
-PATH
-  remote: ~/Repositories/ActiveAdmin-Globalize3-inputs
-  specs:
-    ActiveAdmin-Globalize3-inputs (0.0.1)
-      activeadmin
-      globalize3
 
 GEM
   remote: https://rubygems.org/
