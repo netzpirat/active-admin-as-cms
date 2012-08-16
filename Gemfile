@@ -26,6 +26,8 @@ gem 'html5-rails'
 
 gem 'bluecloth'
 
+gem 'thin'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails', '~> 3.2.1'
@@ -35,6 +37,5 @@ group :assets do
 end
 
 group :development do
-  gem 'thin'
   gem 'bullet'
 end
