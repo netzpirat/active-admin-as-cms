@@ -1,7 +1,7 @@
 class AddPeopleTranslation < ActiveRecord::Migration
   def up
     Person.create_translation_table!({
-      description: :text,
+      description: :text
     }, {
       migrate_data: true
     })
