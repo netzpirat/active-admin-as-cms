@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816081755) do
+ActiveRecord::Schema.define(:version => 20120816112746) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -92,5 +92,26 @@ ActiveRecord::Schema.define(:version => 20120816081755) do
   end
 
   add_index "maneuvers", ["name"], :name => "index_maneuvers_on_name", :unique => true
+
+  create_table "people", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
+    t.string   "mobile"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "person_translations", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "locale"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "person_translations", ["locale"], :name => "index_person_translations_on_locale"
+  add_index "person_translations", ["person_id"], :name => "index_person_translations_on_person_id"
 
 end

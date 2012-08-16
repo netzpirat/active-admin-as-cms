@@ -7,12 +7,16 @@ GIT
       activerecord (>= 3.0.0)
       paper_trail (~> 2)
 
-GEM
-  remote: https://rubygems.org/
+PATH
+  remote: ~/Repositories/ActiveAdmin-Globalize3-inputs
   specs:
     ActiveAdmin-Globalize3-inputs (0.0.1)
       activeadmin
       globalize3
+
+GEM
+  remote: https://rubygems.org/
+  specs:
     actionmailer (3.2.8)
       actionpack (= 3.2.8)
       mail (~> 2.4.4)
@@ -53,6 +57,7 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    bluecloth (2.2.0)
     bourbon (2.1.1)
       sass (>= 3.1)
     builder (3.0.0)
@@ -219,8 +224,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ActiveAdmin-Globalize3-inputs
+  ActiveAdmin-Globalize3-inputs!
   activeadmin
+  bluecloth
   bullet
   carrierwave
   coffee-rails (~> 3.2.1)
