@@ -1,5 +1,5 @@
 class CompanyDescription < ActiveRecord::Base
-  has_many :company_description_details, dependent: :destroy
+  has_many :company_description_details, dependent: :destroy, include: [:translations]
 
   translates :title, :description
 

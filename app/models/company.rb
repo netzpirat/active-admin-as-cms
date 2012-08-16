@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-  has_many :company_descriptions, dependent: :destroy
+  has_many :company_descriptions, dependent: :destroy, include: [:translations]
 
   attr_accessible :name, :street, :zip, :city, :phone, :email, :web
 
