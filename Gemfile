@@ -10,7 +10,7 @@ gem 'meta_search',    '>= 1.1.0.pre'
 gem 'globalize3', git: 'git://github.com/svenfuchs/globalize3.git'
 gem 'rails-translate-routes'
 gem 'locale_detector'
-gem 'ActiveAdmin-Globalize3-inputs', path: '~/Repositories/ActiveAdmin-Globalize3-inputs'
+gem 'ActiveAdmin-Globalize3-inputs', git: 'git://github.com/netzpirat/ActiveAdmin-Globalize3-inputs.git'
 
 gem 'carrierwave'
 gem 'fog'
