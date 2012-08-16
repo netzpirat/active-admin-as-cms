@@ -1,3 +1,5 @@
+//= require jquery-ui-theme
+
 // Active Admin CSS Styles
 @import "active_admin/mixins";
 @import "active_admin/base";
@@ -28,4 +30,13 @@
 
 form fieldset > ol > li.boolean label {
   margin-top: 15px;
+}
+
+form fieldset ol > li label {
+  padding-top: 8px;
+}
+
+.has_many > h3 {
+  margin-top: 25px;
+  font-size: 24px;
 }

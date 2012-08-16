@@ -1,6 +1,18 @@
+GIT
+  remote: git://github.com/svenfuchs/globalize3.git
+  revision: f4e0398883b207c5826abff2ad94e8183d85da16
+  specs:
+    globalize3 (0.2.0)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      paper_trail (~> 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
+    ActiveAdmin-Globalize3-inputs (0.0.1)
+      activeadmin
+      globalize3
     actionmailer (3.2.8)
       actionpack (= 3.2.8)
       mail (~> 2.4.4)
@@ -93,10 +105,6 @@ GEM
     formtastic (2.1.1)
       actionpack (~> 3.0)
     fssm (0.2.9)
-    globalize3 (0.2.0)
-      activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      paper_trail (~> 2)
     haml (3.1.7)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -211,6 +219,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ActiveAdmin-Globalize3-inputs
   activeadmin
   bullet
   carrierwave
@@ -220,7 +229,7 @@ DEPENDENCIES
   compass-rails
   flash_cookie_session
   fog
-  globalize3
+  globalize3!
   haml
   haml-rails
   html5-rails

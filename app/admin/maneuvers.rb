@@ -42,7 +42,6 @@ ActiveAdmin.register Maneuver do
 
     f.inputs 'Maneuver' do
       f.input :name
-      f.input :tagline
       f.input :year
     end
 
@@ -51,9 +50,13 @@ ActiveAdmin.register Maneuver do
       f.input :link, as: :url
     end
 
-    f.inputs 'Details' do
-      f.input :services
-      f.input :description
+    f.globalize_inputs :translations do |lf|
+      lf.inputs 'Details' do
+        lf.input :tagline
+        lf.input :services
+        lf.input :description
+        lf.input :locale, :as => :hidden
+      end
     end
 
     f.has_many :images do |i|
@@ -65,7 +68,12 @@ ActiveAdmin.register Maneuver do
           hint: i.object.image.url ? f.template.image_tag(i.object.image.url) : nil
         }
 
-        i.input :label
+        i.globalize_inputs :translations do |li|
+          li.inputs do
+            li.input :label
+            li.input :locale, :as => :hidden
+          end
+        end
 
         if !i.object.new_record?
           i.input :_destroy, as: :boolean, label: 'Destroy on next update'
