@@ -16,4 +16,6 @@ class Maneuver < ActiveRecord::Base
 
   attr_accessible :translations, :translations_attributes
   accepts_nested_attributes_for :translations
+
+  scope :recent, lambda{ |num| order('created_at desc').limit(num) }
 end
